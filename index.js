@@ -102,6 +102,9 @@ async function render(data, options) {
   return body.innerHTML;
 }
 
+if (hexo.config.highlight) hexo.config.highlight.enable = false;
+render.disableNunjucks = true;
+
 hexo.extend.renderer.register('md', 'html', render);
 hexo.extend.renderer.register('markdown', 'html', render);
 hexo.extend.renderer.register('mkd', 'html', render);
